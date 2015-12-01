@@ -1,0 +1,94 @@
+doctype html
+html
+    include includes/header
+body
+    #header
+      h1
+        a(href='/main') 金螺钉
+    #user-nav.navbar.navbar-inverse
+      ul.nav.btn-group
+        li.btn.btn-inverse
+          a(title='', href='/logout')
+            i.icon.icon-share-alt
+            span.text 登出
+    #sidebar
+      a.visible-phone(href='#')
+        i.icon.icon-th-list
+        |  用户列表
+      ul
+        li
+          a(href='index.html')
+            i.icon.icon-home
+            span Dashboard
+        li.submenu
+          a(href='#')
+            i.icon.icon-th-list
+            span Form elements
+            span.label 3
+          ul
+            li
+              a(href='form-common.html') Common elements
+            li
+              a(href='form-validation.html') Validation
+            li
+              a(href='form-wizard.html') Wizard
+        li
+          a(href='buttons.html')
+            i.icon.icon-tint
+            span Buttons & icons
+        li.active
+          a(href='/evaluates')
+            i.icon.icon-pencil
+            span 评估逻辑
+        li
+          a(href='tables.html')
+            i.icon.icon-th
+            span Tables
+        li
+          a(href='grid.html')
+            i.icon.icon-th-list
+            span Grid Layout
+        li.submenu
+          a(href='#')
+            i.icon.icon-file
+            span Sample pages
+            span.label 4
+          ul
+            li
+              a(href='invoice.html') Invioce
+            li
+              a(href='chat.html') Support chat
+            li
+              a(href='calendar.html') Calendar
+            li
+              a(href='gallery.html') Gallery
+        li
+          a(href='charts.html')
+            i.icon.icon-signal
+            span Charts & graphs
+        li
+          a(href='widgets.html')
+            i.icon.icon-inbox
+            span Widgets
+    #style-switcher
+      i.icon-arrow-left.icon-white
+      span Style:
+      a(href='#grey', style='background-color: #555555;border-color: #aaaaaa;')
+      a(href='#blue', style='background-color: #2D2F57;')
+      a(href='#red', style='background-color: #673232;')
+    #content
+      #content-header
+        h1 欢迎，#{user.username}
+      #breadcrumb
+        a.tip-bottom(href='#', title='返回主页')
+          i.icon-home
+          |  主页
+        !{sitemap}
+      .container-fluid
+        .row-fluid
+          .span12
+            block content
+        .row-fluid
+          #footer.span12
+            | 2015 © 金螺钉
+    include includes/footer

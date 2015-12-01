@@ -1,0 +1,47 @@
+doctype html
+html(lang='en')
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet", href="/stylesheets/bootstrap.min.css")
+    link(rel="stylesheet", href="/stylesheets/bootstrap-responsive.min.css")
+    link(rel="stylesheet", href="/stylesheets/unicorn.login.css")
+    link(rel="stylesheet", href="/stylesheets/style.css")
+    meta(http-equiv="Content-Type", content="text/html; charset=utf-8")
+body
+    #logo
+      img(src='img/logo.png', alt='')
+    #loginbox
+      form#loginform.form-vertical(method='post', role='form')
+        p 登录 !{message}
+        .control-group
+          .controls
+            .input-prepend
+              span.add-on
+                i.icon-user
+              input(type='text', name='username', placeholder='用户名')
+        .control-group
+          .controls
+            .input-prepend
+              span.add-on
+                i.icon-lock
+              input(type='password', name='password', placeholder='密码')
+        .form-actions
+          span.pull-left
+            a#to-recover.flip-link(href='#') 忘记密码？
+          span.pull-right
+            input.btn.btn-inverse(type='submit', value='登录')
+      form#recoverform.form-vertical(action='#')
+        p
+          | 此功能暂时不可用
+        .control-group
+          .controls
+            .input-prepend
+              span.add-on
+                i.icon-envelope
+              input(type='text', placeholder='邮箱地址')
+        .form-actions
+          span.pull-left
+            a#to-login.flip-link(href='#') < 返回登录
+          span.pull-right
+            input.btn.btn-inverse(type='submit', value='找回密码')
+    script(src='/javascripts/jquery.min.js')
+    script(src='/javascripts/unicorn.login.js')

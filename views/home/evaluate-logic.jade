@@ -1,0 +1,33 @@
+extends ../layout
+block content
+      .widget-box
+        .widget-title
+          h5 #{evaluate.model}
+          .buttons
+            a.btn.btn-mini.btn-primary(href="/evaluates/logic/" + evaluate._id +"/add")
+              i.icon-plus.icon-white
+              | 添加
+        .widget-content.nopadding
+          table.table.table-bordered.table-striped
+            thead
+              tr
+                th 属性名称
+                th 控件类型
+                th 排序
+                th 操作
+            tbody
+              each logic, i in logiclist
+                tr
+                  td #{logic.name}
+                  td #{logic.type}
+                  td #{logic.seq}
+                  td.op
+                    a.btn.btn-mini.btn-success(href="/evaluates/logic/" + evaluate._id +"/edit/#{logic._id}")
+                      i.icon-edit.icon-white
+                      | 编辑
+                    a.btn.btn-mini.btn-warning(href="/evaluates/logic/" + evaluate._id +"/options/#{logic._id}")
+                      i.icon-wrench.icon-white
+                      | 选项
+                    a.btn.btn-mini.btn-danger(href="/evaluates/logic/" + evaluate._id +"/del/#{logic._id}")
+                      i.icon-remove.icon-white
+                      | 删除

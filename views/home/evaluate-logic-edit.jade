@@ -1,0 +1,29 @@
+extends ../layout
+block content
+    .widget-box
+      .widget-title
+        span.icon
+          i.icon-plus
+        h5 逻辑属性
+      .widget-content.nopadding
+        form#basic_validate.form-horizontal(method='post', action='#', name='basic_validate', novalidate='novalidate')
+          input(type='hidden', name='evaluateId', value=logic.evaluateId)
+          .control-group
+            label.control-label 属性名称
+            .controls
+              input.required(type='text', name='name', value=logic.name)
+          .control-group
+            label.control-label 控件类型
+            .controls
+              label
+                input.required(type='radio', name='type', style='opacity: 0;', value='radio')
+                |  单选按钮
+              label
+                input.required(type='radio',name='type', style='opacity: 0;', value='checkbox')
+                |  多选按钮
+          .control-group
+            label.control-label 排序
+            .controls
+              input.required(type='number', name='seq', value=logic.seq)
+          .form-actions
+            input.btn.btn-primary(type='submit', value='保存')

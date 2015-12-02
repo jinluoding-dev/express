@@ -4,7 +4,7 @@ block content
         .widget-title
           h5 #{evaluate.model}
           .buttons
-            a.btn.btn-mini.btn-primary(href="/evaluates/logic/" + evaluate._id +"/add")
+            a.btn.btn-mini.btn-primary(href="/evaluates/" + evaluate._id +"/logic/add")
               i.icon-plus.icon-white
               | 添加
         .widget-content.nopadding
@@ -16,18 +16,18 @@ block content
                 th 排序
                 th 操作
             tbody
-              each logic, i in logiclist
+              each logic, i in logicList
                 tr
                   td #{logic.name}
                   td #{logic.type}
                   td #{logic.seq}
                   td.op
-                    a.btn.btn-mini.btn-success(href="/evaluates/logic/" + evaluate._id +"/edit/#{logic._id}")
+                    a.btn.btn-mini.btn-success(href="/evaluates/" + evaluate._id +"/logic/#{logic._id}/edit")
                       i.icon-edit.icon-white
                       | 编辑
-                    a.btn.btn-mini.btn-warning(href="/evaluates/logic/" + evaluate._id +"/options/#{logic._id}")
+                    a.btn.btn-mini.btn-warning(href="/evaluates/" + evaluate._id +"/logic/#{logic._id}/option")
                       i.icon-wrench.icon-white
                       | 选项
-                    a.btn.btn-mini.btn-danger(href="/evaluates/logic/" + evaluate._id +"/del/#{logic._id}")
+                    a.btn.btn-mini.btn-danger(href="/evaluates/" + evaluate._id +"/logic/#{logic._id}/del")
                       i.icon-remove.icon-white
                       | 删除

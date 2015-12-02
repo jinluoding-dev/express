@@ -7,14 +7,18 @@ block content
         h5 选项
       .widget-content.nopadding
         form#basic_validate.form-horizontal(method='post', action='#', name='basic_validate', novalidate='novalidate')
-          input(type='hidden', name='evaluateId', value=logic.  )
+          input(type='hidden', name='logic_id', value=option.logic_id)
           .control-group
             label.control-label 选项名称
             .controls
-              input.required(type='text', name='name', value=logic.name)
+              input.required(type='text', name='name', value=option.name)
+          .control-group
+            label.control-label 价格
+            .controls
+              input.required(type='number', name='price', value=option.price)
           .control-group
             label.control-label 排序
             .controls
-              input.required(type='number', name='seq', value=logic.seq)
+              input.required(type='number', name='seq', value=option.seq)
           .form-actions
             input.btn.btn-primary(type='submit', value='保存')

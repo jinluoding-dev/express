@@ -11,22 +11,25 @@ block content
           table.table.table-bordered.table-striped
             thead
               tr
+                th.pic 预览
                 th 手机型号
                 th 排序
                 th 操作
             tbody
               each evaluate, i in evaluatelist
                 tr
+                  td.pic
+                    img(src=evaluate.pic, onerror="this.src='images/default.png'")
                   td #{evaluate.model}
                   td #{evaluate.seq}
                   td.op
-                    a.btn.btn-mini.btn-success(href="/evaluates/edit/#{evaluate._id}")
+                    a.btn.btn-mini.btn-success(href="/evaluates/#{evaluate._id}/edit")
                       i.icon-edit.icon-white
                       | 编辑
-                    a.btn.btn-mini.btn-warning(href="/evaluates/logic/#{evaluate._id}")
+                    a.btn.btn-mini.btn-warning(href="/evaluates/#{evaluate._id}/logic")
                       i.icon-wrench.icon-white
                       | 逻辑
-                    a.btn.btn-mini.btn-danger(href="/evaluates/del/#{evaluate._id}")
+                    a.btn.btn-mini.btn-danger(href="/evaluates/#{evaluate._id}/del")
                       i.icon-remove.icon-white
                       | 删除
                 

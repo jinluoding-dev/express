@@ -9,6 +9,7 @@ a {
 
 .table td {
 	text-align:center;
+	vertical-align: middle;
 }
 
 td.op {
@@ -17,4 +18,12 @@ td.op {
 
 td.op a {
 	margin:0 4px;
+}
+
+th.pic {
+	width: 200px;
+}
+
+td.pic img{
+	height: 50px;
 }

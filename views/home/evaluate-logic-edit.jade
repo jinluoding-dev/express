@@ -7,7 +7,7 @@ block content
         h5 逻辑属性
       .widget-content.nopadding
         form#basic_validate.form-horizontal(method='post', action='#', name='basic_validate', novalidate='novalidate')
-          input(type='hidden', name='evaluateId', value=logic.evaluateId)
+          input(type='hidden', name='evaluateId', value=logic.evaluate_id)
           .control-group
             label.control-label 属性名称
             .controls
@@ -16,10 +16,10 @@ block content
             label.control-label 控件类型
             .controls
               label
-                input.required(type='radio', name='type', style='opacity: 0;', value='radio')
+                input.required(type='radio', name='type', style='opacity: 0;', value='radio', checked=logic.type=='radio')
                 |  单选按钮
               label
-                input.required(type='radio',name='type', style='opacity: 0;', value='checkbox')
+                input.required(type='radio',name='type', style='opacity: 0;', value='checkbox', checked=logic.type=='checkbox')
                 |  多选按钮
           .control-group
             label.control-label 排序

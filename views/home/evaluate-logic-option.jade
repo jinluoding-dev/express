@@ -2,32 +2,29 @@ extends ../layout
 block content
       .widget-box
         .widget-title
-          h5 #{evaluate.model}
+          h5 #{logic.name}
           .buttons
-            a.btn.btn-mini.btn-primary(href="/evaluates/logic/" + evaluate._id +"/add")
+            a.btn.btn-mini.btn-primary(href="/evaluates/" + evaluateId +"/logic/" + logic._id + "/option/add")
               i.icon-plus.icon-white
               | 添加
         .widget-content.nopadding
           table.table.table-bordered.table-striped
             thead
               tr
-                th 属性名称
-                th 控件类型
+                th 选项名称
+                th 价格
                 th 排序
                 th 操作
             tbody
-              each logic, i in logiclist
+              each option, i in optionList
                 tr
-                  td #{logic.name}
-                  td #{logic.type}
-                  td #{logic.seq}
+                  td #{option.name}
+                  td #{option.price}
+                  td #{option.seq}
                   td.op
-                    a.btn.btn-mini.btn-success(href="/evaluates/logic/" + evaluate._id +"/edit/#{logic._id}")
+                    a.btn.btn-mini.btn-success(href="/evaluates/" + evaluateId +"/logic/" + logic._id + "/option/#{option._id}/edit")
                       i.icon-edit.icon-white
                       | 编辑
-                    a.btn.btn-mini.btn-warning(href="/evaluates/logic/" + evaluate._id +"/options/#{logic._id}")
-                      i.icon-wrench.icon-white
-                      | 选项
-                    a.btn.btn-mini.btn-danger(href="/evaluates/logic/" + evaluate._id +"/del/#{logic._id}")
+                    a.btn.btn-mini.btn-danger(href="/evaluates/" + evaluateId +"/logic/" + logic._id + "/option/#{option._id}/del")
                       i.icon-remove.icon-white
                       | 删除

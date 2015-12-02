@@ -6,14 +6,19 @@ block content
           i.icon-plus
         h5 手机型号
       .widget-content.nopadding
-        form#basic_validate.form-horizontal(method='post', action='#', name='basic_validate', novalidate='novalidate')
+        form#basic_validate.form-horizontal(method='post', action='#', name='basic_validate', enctype='multipart/form-data', novalidate='novalidate')
           .control-group
             label.control-label 型号
             .controls
-              input#model.required(type='text', name='model', value=evaluate.model)
+              input.required(type='text', name='model', value=evaluate.model)
+          .control-group
+            label.control-label 预览图片
+            .controls
+              input(type='file', name='file', accept='image/*')
+              input(type='hidden', name='pic', value=evaluate.pic)
           .control-group
             label.control-label 排序
             .controls
-              input#seq.required(type='number', name='seq', value=evaluate.seq)
+              input.required(type='number', name='seq', value=evaluate.seq)
           .form-actions
             input.btn.btn-primary(type='submit', value='保存')

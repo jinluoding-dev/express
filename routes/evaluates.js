@@ -2,9 +2,9 @@ var express = require('express');
 var multer = require('multer');
 var router = express.Router();
 var logger = require('../log').logger;
-var _uploadDir = 'uploads/';
+var _uploadDir = '/uploads/';
 var upload = multer({
-    dest: 'public/uploads',
+    dest: 'public' + _uploadDir,
     limits: {
         fileSize: 2 * 1024 * 1024
     }

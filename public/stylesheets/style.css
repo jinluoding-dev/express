@@ -27,3 +27,8 @@ th.pic {
 td.pic img{
 	height: 50px;
 }
+
+.fileimg-preview {
+	width:50px;
+	height:50px;
+}

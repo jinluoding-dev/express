@@ -1,0 +1,23 @@
+extends ../layout
+block content
+      .widget-box
+        .widget-title
+          h5 用户列表
+        .widget-content.nopadding
+          table.table.table-bordered.table-striped
+            thead
+              tr
+                th 头像
+                th 昵称
+                th 电话
+                th 地址
+                th 关注日期
+            tbody
+              each user, i in userList
+                tr
+                  td.pic
+                    img(src=user.headimgurl)
+                  td #{user.nickname}
+                  td #{user.tel}
+                  td #{user.address}
+                  td #{user.attention_date}

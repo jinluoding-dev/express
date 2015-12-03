@@ -1,0 +1,32 @@
+extends ../layout
+block content
+    .widget-box
+      .widget-title
+        span.icon
+          i.icon-plus
+        h5 商品属性
+      .widget-content.nopadding
+        form#basic_validate.form-horizontal(method='post', action='#', name='basic_validate', novalidate='novalidate')
+          input(type='hidden', name='product_id', value=option.product_id)
+          .control-group
+            label.control-label 颜色
+            .controls
+              input.required(type='text', name='color', value=option.color)
+          .control-group
+            label.control-label 容量
+            .controls
+              input.required(type='text', name='rom', value=option.rom)
+          .control-group
+            label.control-label 运营商
+            .controls
+              input.required(type='text', name='operator', value=option.operator)
+          .control-group
+            label.control-label 价格
+            .controls
+              input.required(type='number', name='price', value=option.price)
+          .control-group
+            label.control-label 排序
+            .controls
+              input.required(type='number', name='seq', value=option.seq)
+          .form-actions
+            input.btn.btn-primary(type='submit', value='保存')

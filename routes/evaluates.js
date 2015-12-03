@@ -20,7 +20,7 @@ router.get('/', function(req, res, next) {
     }, function(err, docs) {
         res.render('home/evaluate', {
             'sitemap': '<a class="current" href="#">评估逻辑</a>',
-            'evaluatelist': docs
+            'evaluateList': docs
         })
     })
 });
@@ -36,7 +36,7 @@ router.get('/add', function(req, res, next) {
     })
 });
 
-router.post('/add', function(req, res, next) {
+router.post('/add', upload.single('file'), function(req, res, next) {
     var db = req.db;
     var evaluate = req.body;
     evaluate.seq = parseInt(req.body.seq);
@@ -89,32 +89,6 @@ router.post('/:id/edit', upload.single('file'), function(req, res, next) {
             res.redirect("/evaluates");
         })
     })
-    /*
-    router.post('/:id/edit', function(req, res, next) {
-        var db = req.db;
-        var id = req.params.id;
-        var collection = db.get('evaluatecollection');
-        var evaluate = req.body;
-        evaluate.seq = parseInt(req.body.seq);
-        upload(req, res, function(err) {
-            if (err) {
-                logger.error('----- upload image error -----');
-                return;
-            }
-            evaluate.pic = req.files[0].filename;
-
-            collection.update({
-                _id: id
-            }, evaluate, function(err, docs) {
-                if (err) {
-                    logger.error('----- update evaluate error id = ' + id + ' -----');
-                    next(err);
-                }
-                logger.info('----- update evaluate id = ' + id + ' -----');
-                res.redirect("/evaluates");
-            })
-        })
-    })*/
 
 router.get('/:id/del', function(req, res) {
     var db = req.db;

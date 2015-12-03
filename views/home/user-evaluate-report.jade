@@ -1,0 +1,18 @@
+extends ../layout
+block content
+      .widget-box
+        .widget-title
+          h5 #{user.nickname}
+        .widget-content.nopadding
+          table.table.table-bordered.table-striped
+            thead
+              tr
+                th 型号
+                th 价格
+                th 详细
+            tbody
+              each report, i in reportList
+                tr
+                  td #{report.model}
+                  td #{report.price}
+                  td #{report.detail}

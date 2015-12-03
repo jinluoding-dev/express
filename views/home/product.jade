@@ -2,9 +2,9 @@ extends ../layout
 block content
       .widget-box
         .widget-title
-          h5 可回收手机
+          h5 商品列表
           .buttons
-            a.btn.btn-mini.btn-primary(href="/evaluates/add")
+            a.btn.btn-mini.btn-primary(href="/products/add")
               i.icon-plus.icon-white
               | 添加
         .widget-content.nopadding
@@ -16,20 +16,20 @@ block content
                 th 排序
                 th 操作
             tbody
-              each evaluate, i in evaluateList
+              each product, i in productList
                 tr
                   td.pic
-                    img(src=evaluate.pic, onerror="this.src='/images/default.jpg'")
-                  td #{evaluate.model}
-                  td #{evaluate.seq}
+                    img(src=product.pic, onerror="this.src='/images/default.jpg'")
+                  td #{product.model}
+                  td #{product.seq}
                   td.op
-                    a.btn.btn-mini.btn-success(href="/evaluates/#{evaluate._id}/edit")
+                    a.btn.btn-mini.btn-success(href="/products/#{product._id}/edit")
                       i.icon-edit.icon-white
                       | 编辑
-                    a.btn.btn-mini.btn-warning(href="/evaluates/#{evaluate._id}/logic")
+                    a.btn.btn-mini.btn-warning(href="/products/#{product._id}/option")
                       i.icon-wrench.icon-white
-                      | 逻辑
-                    a.btn.btn-mini.btn-danger(href="/evaluates/#{evaluate._id}/del")
+                      | 属性
+                    a.btn.btn-mini.btn-danger(href="/products/#{product._id}/del")
                       i.icon-remove.icon-white
                       | 删除
                 

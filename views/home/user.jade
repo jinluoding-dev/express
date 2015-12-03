@@ -13,6 +13,7 @@ block content
                 th 电话
                 th 地址
                 th 关注日期
+                th 查看
             tbody
               each user, i in userList
                 tr
@@ -23,3 +24,13 @@ block content
                   td #{user.tel}
                   td #{user.address}
                   td #{moment(new Date(parseInt(user.attention_date))).format('YYYY-MM-DD hh:mm')}
+                  td.op
+                    a.btn.btn-mini.btn-info(href="/users/#{user._id}/evaluate-report")
+                      i.icon-comment.icon-white
+                      | 评估报告
+                    a.btn.btn-mini.btn-info(href="/users/#{user._id}/coupon")
+                      i.icon-gift.icon-white
+                      | 优惠券
+                    a.btn.btn-mini.btn-info(href="/orders/users/#{user.open_id}")
+                      i.icon-th-list.icon-white
+                      | 订单

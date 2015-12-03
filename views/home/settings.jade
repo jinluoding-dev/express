@@ -1,0 +1,35 @@
+extends ../layout
+block content
+    .widget-box
+      .widget-title
+        span.icon
+          i.icon-plus
+        h5 设置
+      .widget-content.nopadding
+        form#basic_validate.form-horizontal(method='post', action='#', name='basic_validate', novalidate='novalidate')
+          .control-group
+            label.control-label 我们的地址
+            .controls
+              input.required(type='text', name='address', value=settings.address)
+          .control-group
+            label.control-label 邮政编码
+            .controls
+              input.required(type='text', name='postcode', value=settings.postcode)
+          .control-group
+            label.control-label 收件人
+            .controls
+              input.required(type='text', name='addressee', value=settings.addressee)
+          .control-group
+            label.control-label 联系电话
+            .controls
+              input.required(type='tel', name='tel', value=settings.tel)
+          .control-group
+            label.control-label 金螺钉碎屏险价格
+            .controls
+              input.required(type='number', name='insurance_price', value=settings.insurance_price)
+          .control-group
+            label.control-label 分享领取代金券金额
+            .controls
+              input.required(type='number', name='coupon', value=settings.coupon)
+          .form-actions
+            input.btn.btn-primary(type='submit', value='保存')

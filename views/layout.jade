@@ -16,26 +16,6 @@ body
         i.icon.icon-th-list
         |  用户列表
       ul
-        li
-          a(href='index.html')
-            i.icon.icon-home
-            span Dashboard
-        li.submenu
-          a(href='#')
-            i.icon.icon-th-list
-            span Form elements
-            span.label 3
-          ul
-            li
-              a(href='form-common.html') Common elements
-            li
-              a(href='form-validation.html') Validation
-            li
-              a(href='form-wizard.html') Wizard
-        li
-          a(href='buttons.html')
-            i.icon.icon-tint
-            span Buttons & icons
         if active == 'evaluates'
           li.active
             a(href='/evaluates')
@@ -46,6 +26,16 @@ body
             a(href='/evaluates')
               i.icon.icon-pencil
               span 评估逻辑
+        if active == 'products'
+          li.active
+            a(href='/products')
+              i.icon.icon-shopping-cart
+              span 商品列表
+        else
+          li
+            a(href='/products')
+              i.icon.icon-shopping-cart
+              span 商品列表
         if active == 'users'
           li.active
             a(href='/users')
@@ -66,32 +56,16 @@ body
             a(href='/orders')
               i.icon.icon-list
               span 订单列表
-        li
-          a(href='grid.html')
-            i.icon.icon-th-list
-            span Grid Layout
-        li.submenu
-          a(href='#')
-            i.icon.icon-file
-            span Sample pages
-            span.label 4
-          ul
-            li
-              a(href='invoice.html') Invioce
-            li
-              a(href='chat.html') Support chat
-            li
-              a(href='calendar.html') Calendar
-            li
-              a(href='gallery.html') Gallery
-        li
-          a(href='charts.html')
-            i.icon.icon-signal
-            span Charts & graphs
-        li
-          a(href='widgets.html')
-            i.icon.icon-inbox
-            span Widgets
+        if active == 'settings'
+          li.active
+            a(href='/settings')
+              i.icon.icon-wrench
+              span 设置
+        else
+          li
+            a(href='/settings')
+              i.icon.icon-wrench
+              span 设置
     //- #style-switcher
     //-   i.icon-arrow-left.icon-white
     //-   span Style:

@@ -1,0 +1,34 @@
+extends ../layout
+block content
+      .widget-box
+        .widget-title
+          h5 #{product.model}
+          .buttons
+            a.btn.btn-mini.btn-primary(href="/products/" + product._id +"/option/add")
+              i.icon-plus.icon-white
+              | 添加
+        .widget-content.nopadding
+          table.table.table-bordered.table-striped
+            thead
+              tr
+                th 颜色
+                th 容量
+                th 运营商
+                th 价格
+                th 排序
+                th 操作
+            tbody
+              each option, i in optionList
+                tr
+                  td #{option.color}
+                  td #{option.rom}
+                  td #{option.operator}
+                  td #{option.price}
+                  td #{option.seq}
+                  td.op
+                    a.btn.btn-mini.btn-success(href="/products/" + product._id +"/option/#{option._id}/edit")
+                      i.icon-edit.icon-white
+                      | 编辑
+                    a.btn.btn-mini.btn-danger(href="/products/" + product._id +"/option/#{option._id}/del")
+                      i.icon-remove.icon-white
+                      | 删除

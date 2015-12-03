@@ -37,6 +37,6 @@ table {
 	white-space: nowrap;
 }
 
-body{
+.widget-content{
 	overflow-x:auto;
 }

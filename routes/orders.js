@@ -2,19 +2,17 @@ var express = require('express');
 var router = express.Router();
 var moment = require('moment');
 
-/* GET users listing. */
 router.get('/', function(req, res, next) {
   var db = req.db;
-    var collection = db.get('usercollection');
+    var collection = db.get('ordercollection');
     collection.find({}, {
         sort: {
-            attention_date: 1
+            order_date: 1
         }
     }, function(err, docs) {
-    	//user.attention_date = new Date(user.attention_date);
-        res.render('home/user', {
-            'sitemap': '<a class="current" href="#">用户列表</a>',
-            'userList': docs,
+        res.render('home/order', {
+            'sitemap': '<a class="current" href="#">订单列表</a>',
+            'orderList': docs,
             'moment': moment
         })
     })

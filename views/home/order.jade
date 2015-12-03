@@ -1,0 +1,54 @@
+extends ../layout
+block content
+      .widget-box
+        .widget-title
+          h5 订单列表
+        .widget-content.nopadding
+          table.table.table-bordered.table-striped
+            thead
+              tr
+                th 订单类型
+                th 微信ID
+                th 用户发货
+                th 用户付款
+                th 金螺钉验收
+                th 金螺钉发货
+                th 金螺钉付款
+                th 进度
+                th 用户电话
+                th 用户姓名
+                th 用户地址
+                th 用户AppleID
+                th 订单日期
+                th 旧手机型号
+                th 旧手机价格
+                th 新手机型号
+                th 新手机价格
+                th 其他消费
+                th 其他消费金额
+                th 快递公司
+                th 快递单号
+            tbody
+              each order, i in orderList
+                tr
+                  td #{order.type.toString().replace('0', '回收').replace('1', '置换').replace('2', '新购')}
+                  td #{order.open_id}
+                  td #{order.user_state_send}
+                  td #{order.user_state_pay}
+                  td #{order.trader_state_send}
+                  td #{order.trader_state_pay}
+                  td #{order.trader_state_check}
+                  td #{order.state.toString().replace('0', '进行中').replace('1', '已取消').replace('2', '已完成')}
+                  td #{order.user_tel}
+                  td #{order.user_name}
+                  td #{order.user_address}
+                  td #{order.user_apple_account}
+                  td #{moment(new Date(parseInt(order.order_date))).format('YYYY-MM-DD hh:mm')}
+                  td #{order.old_phone}
+                  td #{order.old_phone_price}
+                  td #{order.new_phone}
+                  td #{order.new_phone_price}
+                  td #{order.trade_detail}
+                  td #{order.trade_price}
+                  td #{order.express_comp}
+                  td #{order.express_no}

@@ -36,14 +36,36 @@ body
           a(href='buttons.html')
             i.icon.icon-tint
             span Buttons & icons
-        li.active
-          a(href='/evaluates')
-            i.icon.icon-pencil
-            span 评估逻辑
-        li
-          a(href='tables.html')
-            i.icon.icon-th
-            span Tables
+        if active == 'evaluates'
+          li.active
+            a(href='/evaluates')
+              i.icon.icon-pencil
+              span 评估逻辑
+        else
+          li
+            a(href='/evaluates')
+              i.icon.icon-pencil
+              span 评估逻辑
+        if active == 'users'
+          li.active
+            a(href='/users')
+              i.icon.icon-user
+              span 用户列表
+        else
+          li
+            a(href='/users')
+              i.icon.icon-user
+              span 用户列表
+        if active == 'orders'
+          li.active
+            a(href='/orders')
+              i.icon.icon-list
+              span 订单列表
+        else
+          li
+            a(href='/orders')
+              i.icon.icon-list
+              span 订单列表
         li
           a(href='grid.html')
             i.icon.icon-th-list
@@ -70,12 +92,12 @@ body
           a(href='widgets.html')
             i.icon.icon-inbox
             span Widgets
-    #style-switcher
-      i.icon-arrow-left.icon-white
-      span Style:
-      a(href='#grey', style='background-color: #555555;border-color: #aaaaaa;')
-      a(href='#blue', style='background-color: #2D2F57;')
-      a(href='#red', style='background-color: #673232;')
+    //- #style-switcher
+    //-   i.icon-arrow-left.icon-white
+    //-   span Style:
+    //-   a(href='#grey', style='background-color: #555555;border-color: #aaaaaa;')
+    //-   a(href='#blue', style='background-color: #2D2F57;')
+    //-   a(href='#red', style='background-color: #673232;')
     #content
       #content-header
         h1 欢迎，#{user.username}

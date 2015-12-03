@@ -8,6 +8,7 @@ block content
             thead
               tr
                 th 头像
+                th 微信ID
                 th 昵称
                 th 电话
                 th 地址
@@ -17,7 +18,8 @@ block content
                 tr
                   td.pic
                     img(src=user.headimgurl)
+                  td #{user.open_id}
                   td #{user.nickname}
                   td #{user.tel}
                   td #{user.address}
-                  td #{user.attention_date}
+                  td #{moment(new Date(parseInt(user.attention_date))).format('YYYY-MM-DD hh:mm')}

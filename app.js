@@ -15,6 +15,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var evaluates = require('./routes/evaluates');
 var products = require('./routes/products');
+var orders = require('./routes/orders');
 
 var app = express();
 
@@ -58,9 +59,10 @@ function authentication(req, res, next) {
 }
 
 app.use('/', routes);
-app.use('/users', users);
-app.use('/products', authentication, products);
-app.use('/evaluates', evaluates);
+app.use('/users', function(req, res, next) {res.locals.active = 'users';next();}, users);
+app.use('/products', function(req, res, next) {res.locals.active = 'products';next();}, authentication, products);
+app.use('/evaluates', function(req, res, next) {res.locals.active = 'evaluates';next();}, evaluates);
+app.use('/orders', function(req, res, next) {res.locals.active = 'orders';next();}, orders);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
